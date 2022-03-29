@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.content {
+  display: inline-block;
+}
+
+.truncate:not(.showMore) {
+  width: calc(
+    100% - 140px
+  ); // Use 100% of the width our parent element has available and leave space for the button
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content.showMore + button {
+  margin-top: 4px;
+}
+
+button {
+  white-space: nowrap; // don't break line in button text
+  vertical-align: top;
+}
