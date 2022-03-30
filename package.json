@@ -1,5 +1,5 @@
 {
-  "name": "ngx-ellipsis",
+  "name": "@leanix/ngx-ellipsis",
   "version": "0.1.0",
   "description": "Angular component to truncate any text to one line with the possibility to expand it.",
   "license": "MIT",
@@ -46,5 +46,13 @@
   "keywords": [
     "Angular",
     "CSS ellipsis"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konstantintieber/ngx-ellipsis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/konstantintieber/ngx-ellipsis/issues"
+  },
+  "homepage": "https://github.com/konstantintieber/ngx-ellipsis#readme"
 }
