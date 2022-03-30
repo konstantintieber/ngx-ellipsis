@@ -17,7 +17,7 @@ import { ResizeObserverService } from './resize-observer.service';
 
 export const LX_ELLIPSIS_DEBOUNCE_ON_RESIZE = new InjectionToken<number>('LX_ELLIPSIS_DEBOUNCE_ON_RESIZE', {
   providedIn: 'root',
-  factory: () => 500
+  factory: () => LxEllipsisComponent.DEFAULT_RESIZE_DEBOUNCE_MS
 });
 
 /**
@@ -32,6 +32,7 @@ export const LX_ELLIPSIS_DEBOUNCE_ON_RESIZE = new InjectionToken<number>('LX_ELL
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LxEllipsisComponent implements OnInit, OnDestroy {
+  static DEFAULT_RESIZE_DEBOUNCE_MS = 500;
   @Input() content: string = '';
   @Input() showMoreButtonText = 'Show more';
   @Input() showLessButtonText = 'Show less';
