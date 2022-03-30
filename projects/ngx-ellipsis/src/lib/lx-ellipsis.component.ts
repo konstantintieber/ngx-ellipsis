@@ -105,15 +105,20 @@ export class LxEllipsisComponent implements OnInit, OnDestroy {
       withLatestFrom(this.isShowingMore$),
       filter(([, isShowingMore]) => isShowingMore),
       map(([[buttonHeight, newHeight]]) => {
-        const showLessButtonMarginTop = 4; // 4 for the 4px top margin that the button has in "show less" mode
-        const thresholdToDetectContentInSingleLine = 10;
-        const differenceBetweenContentSpanAndButtonHeight = Math.abs(newHeight - buttonHeight - showLessButtonMarginTop);
+        const heightOfOneLine = buttonHeight;
+        const showLessButtonMarginTop = 4;
+        const heightOfSpanInShowMoreMode = newHeight - buttonHeight - showLessButtonMarginTop;
+        const thresholdToDetectContentInSingleLine = 4;
+        const differenceBetweenContentSpanAndButtonHeight = Math.abs(heightOfOneLine - heightOfSpanInShowMoreMode);
         const isSpanContentDisplayedInOneLineAgain = differenceBetweenContentSpanAndButtonHeight < thresholdToDetectContentInSingleLine;
         return isSpanContentDisplayedInOneLineAgain;
       })
     );
     const contentFitsInOneLineAgainWhileShowMoreIsEnabled$ = userIncreasedBrowserWindowSizeToThePointOfNoTruncationNecessary$.pipe(
-      map((textIsNowInOneLineAgain) => !textIsNowInOneLineAgain)
+      startWith(false),
+      pairwise(),
+      filter(([previousTextIsNowInOneLineAgain]) => !previousTextIsNowInOneLineAgain),
+      map(([, textIsNowInOneLineAgain]) => !textIsNowInOneLineAgain)
     );
     const contentIsOverflowingAndShowMoreIsNotEnabled$ = isContentOverflowing$.pipe(
       withLatestFrom(this.isShowingMore$),
