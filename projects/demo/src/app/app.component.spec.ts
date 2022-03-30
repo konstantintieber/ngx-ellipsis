@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { LxEllipsisModule } from '../../../ngx-ellipsis/src/lib/ngx-ellipsis.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -7,6 +8,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [LxEllipsisModule]
     }).compileComponents();
   });
 

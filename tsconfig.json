@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "esModuleInterop": true,
     "paths": {
       "ngx-ellipsis": [
         "dist/ngx-ellipsis/ngx-ellipsis",
