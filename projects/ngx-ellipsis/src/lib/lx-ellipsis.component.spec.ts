@@ -86,7 +86,8 @@ describe('LxEllipsisComponent', () => {
         });
 
         component.onShowMoreToggle();
-        mockResizeEvent({ newClientWidth: 500, newScrollWidth: 500, newClientHeight: buttonOffsetHeight + 4 });
+        const contentSpanHeight = 18;
+        mockResizeEvent({ newClientWidth: 500, newScrollWidth: 500, newClientHeight: buttonOffsetHeight + contentSpanHeight });
       });
 
       function mockResizeEvent({
