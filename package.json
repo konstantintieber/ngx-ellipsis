@@ -1,6 +1,7 @@
 {
   "name": "@leanix/ngx-ellipsis",
   "version": "0.1.0",
+  "author": "LeanIX GmbH",
   "description": "Angular component to truncate any text to one line with the possibility to expand it.",
   "license": "MIT",
   "scripts": {
