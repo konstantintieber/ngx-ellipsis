@@ -20,6 +20,17 @@
 }
 
 button {
+  // button style reset begin
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  // button style reset end
+  color: blue;
   white-space: nowrap; // don't break line in button text
   vertical-align: top;
 }

@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   longContent = `
-  Bavaria ipsum dolor sit amet is ghupft wia gsprunga gor a bissal wos gehd ollaweil! Gar nia need Musi soi san um Godds wujn samma Radler, heitzdog a fescha Bua. Jo mei is des schee Ewig und drei Dog resch helfgod gelbe Rüam nia need gar nia need fias guad. Gwihss großherzig fensdaln zünftig Foidweg hallelujah sog i, luja, wolpern auf gehds beim Schichtl am acht’n Tag schuf Gott des Bia Namidog a ganze Hoiwe: Klampfn Broadwurschtbudn Gschicht i mechad dee Schwoanshaxn Steckerleis schnacksln. Breihaus ebba Gamsbart im Beidl wuid d’ nia need a bissal wos gehd ollaweil! Brezn pfenningguat gschmeidig hoam. Ned woar hod Milli, Steckerleis: Nimma des is a gmahde Wiesn sauba, Zidern Kuaschwanz. Zwedschgndadschi Mongdratzal om auf’n Gipfe Griasnoggalsubbm Wiesn, no nia need i hab an gscheit: Heitzdog heitzdog Namidog gfreit mi gscheckate hob Obazda Kneedl Lewakaas glei.
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   `;
+
+  longContentWithLineBreaks = `
+    ${this.longContent}\n
+
+    ${this.longContent}
+  `
+
+  contentWithAnchorHtml = `
+    Have a look at the documentation here: <a href="https://angular.io/docs">https://angular.io/docs</a>. Every developer who is working with angular should've read the documentation and consult it regularly.
+  `
 }
