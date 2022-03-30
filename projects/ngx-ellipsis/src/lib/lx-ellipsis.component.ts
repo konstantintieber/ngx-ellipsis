@@ -10,8 +10,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import { BehaviorSubject, combineLatest, merge, Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, pairwise, startWith, takeUntil, withLatestFrom } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, concat, merge, Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, pairwise, startWith, take, takeUntil, withLatestFrom } from 'rxjs/operators';
 import { Observe } from './observe.decorator';
 import { ResizeObserverService } from './resize-observer.service';
 
@@ -85,10 +85,11 @@ export class LxEllipsisComponent implements OnInit, OnDestroy {
       this.content$,
       containerWidthChangedSignificantlyAfterResize$
     ]);
-    const isContentOverflowing$ = reevaluateIfContentIsOverflowing$.pipe(
-      debounceTime(this.debounceMsAfterResize),
-      map(([contentSpanRef]) => this.isContentOverflowing(contentSpanRef))
-    );
+
+    const isContentOverflowing$ = concat(
+      reevaluateIfContentIsOverflowing$.pipe(take(1)), // debounce all but the first output
+      reevaluateIfContentIsOverflowing$.pipe(debounceTime(this.debounceMsAfterResize))
+    ).pipe(map(([contentSpanRef]) => this.isContentOverflowing(contentSpanRef)));
 
     const userTriggeredTriggeredShowMore$ = this.isShowingMore$.pipe(filter((isShowingMore) => isShowingMore));
 
