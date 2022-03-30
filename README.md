@@ -1,6 +1,10 @@
 # NgxEllipsis
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This project provides the [lx-ellipsis](projects/ngx-ellipsis/src/lib/lx-ellipsis.component.ts) component to truncate any text (or HTML) to one line with the possibility to expand it using a button.
+
+It uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver" target="_blank">ResizeObserver API</a> to show/hide the button depending on any CSS ellipsis effect being active.
+
+**Less reading more trying?** Have a look at the demo page: [https://konstantintieber.github.io/ngx-ellipsis/](https://konstantintieber.github.io/ngx-ellipsis/)
 
 ## Development server
 
@@ -16,11 +20,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/).
 
 ## Further help
 
