@@ -1,0 +1,44 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Retrieve node_modules from cache for current package-lock.json
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Get Node.js version
+        id: nodejs
+        run: echo ::set-output name=nodeVersion::$(cat .node-version)
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.nodejs.outputs.nodeVersion }}
+
+      - name: "If no cached node_modules found: Install npm dependencies from scratch"
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Build demo app
+        run: ./node_modules/.bin/ng build demo --base-href=/ngx-ellipsis/
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/gh-pages' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/demo
