@@ -6,6 +6,46 @@ It uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObse
 
 **Less reading more trying?** Have a look at the demo page: [https://konstantintieber.github.io/ngx-ellipsis/](https://konstantintieber.github.io/ngx-ellipsis/)
 
+## Usage
+
+Anywhere in your template:
+
+```html
+<lx-ellipsis [content]="'Lorem ipsum dolor sit amet, consetetur sadipscing elitr'"></lx-ellipsis>
+
+<!-- With max-width on container: -->
+<lx-ellipsis style="max-width: 400px;" [content]="'Lorem ipsum dolor sit amet'"></lx-ellipsis>
+```
+
+### Inputs
+
+These are the inputs that the `lx-ellipsis` component accepts
+
+| Input | Description |
+| ---- | ---- |
+| __content__ | _required_ The text or HTML that you want to be truncated to one string using CSS. |
+| __showMoreButtonText__ | Set the text of the `Show more` button. |
+| __showLessButtonText__ | Set the text of the `Show less` button. |
+
+### Configuring the debounce duration between resize events
+
+In order to improve performance, we don't act immediately on a resize notification from the `ResizeObserver`, but we debounce those events by 500 milliseconds.
+This debounce duration can be configured using the `LX_ELLIPSIS_DEBOUNCE_ON_RESIZE` injection token.
+
+Example:
+```typescript
+@NgModule({
+  /* ... */
+  providers: [
+      /* ... */
+      {
+          provide: LX_ELLIPSIS_DEBOUNCE_ON_RESIZE, useValue: 300
+      }
+  ],
+})
+export class YourAngularModule {}
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
