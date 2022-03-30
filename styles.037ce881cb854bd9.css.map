@@ -1,0 +1,1 @@
+{"version":3,"sources":["./projects/demo/src/styles.scss"],"sourcesContent":["/* You can add global styles to this file, and also import other style files */\nbody {\n    font-family: sans-serif\n}\n"],"mappings":"AACA,KACI","names":[],"sourceRoot":"webpack:///","file":"styles.037ce881cb854bd9.css"}
