@@ -19,9 +19,9 @@
 <h3>This one should not be truncated:</h3>
 <lx-ellipsis style="max-width: 800px;" [content]="'Hello World'"></lx-ellipsis>
 
+<h3>Applying ellipsis when content grows:</h3>
+<lx-ellipsis style="max-width: 800px;" [content]="editableContent"></lx-ellipsis>
+<textarea [(ngModel)]="editableContent"></textarea>
+
 <h3>Containing anchor HTML element:</h3>
 <lx-ellipsis style="max-width: 800px;" [content]="contentWithAnchorHtml"></lx-ellipsis>
-
-<h3>Truncated and shows line breaks in expanded view:</h3>
-<lx-ellipsis style="max-width: 800px;" [content]="longContentWithLineBreaks"></lx-ellipsis>
-

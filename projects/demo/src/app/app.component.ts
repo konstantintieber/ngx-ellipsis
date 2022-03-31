@@ -19,4 +19,6 @@ export class AppComponent {
   contentWithAnchorHtml = `
     Have a look at the documentation here: <a href="https://angular.io/docs">https://angular.io/docs</a>. Every developer who is working with angular should've read the documentation and consult it regularly.
   `
+
+  editableContent = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod';
 }
